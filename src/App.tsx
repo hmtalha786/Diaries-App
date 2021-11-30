@@ -1,13 +1,13 @@
 import React, {Fragment} from 'react';
 import './App.css';
 import {useSelector} from 'react-redux';
-import {RootState} from "./store/rootReducer"
+import {RootState} from "./services/redux/reducer"
 import {PublicRoute, PrivateRoute} from "./components/Route";
 import { BrowserRouter, Routes } from 'react-router-dom';
 import Login from "./components/Login"
 import Home from './components/Home';
 import Signup from './components/Signup';
-import Entries from './components/Entries';
+import Entries from './components/Entry/Entries';
 import Header from './components/Header';
 
 const App = () => {
