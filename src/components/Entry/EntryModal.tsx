@@ -5,12 +5,11 @@ import { addEntry, updateEntry } from "../../services/redux/slices/entry";
 import { showAlert } from "../../utils/alert";
 import Loading from "../Loading";
 import { Button } from "@material-ui/core";
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 interface Props {
   btnTitle: string;
@@ -72,14 +71,18 @@ function EntryModal({
     setEntryData(editInfo);
   }, [editInfo]);
   const handleClose = () => {
-    toggleDrawer(false)
-  }
+    toggleDrawer(false);
+  };
   return (
     <Fragment>
-       <Button  style={{color: " #005ce6"}} onClick={() => toggleDrawer(true)}>
+      <Button style={{ color: " #005ce6" }} onClick={() => toggleDrawer(true)}>
         Edit Entry
       </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="form-dialog-title"
+      >
         <DialogTitle id="form-dialog-title">Add Entry</DialogTitle>
         <DialogContent>
           <TextField
@@ -92,28 +95,36 @@ function EntryModal({
             onChange={handleInputChange}
             value={entryData.title}
           />
-        <TextField
-          id="standard-multiline-flexible"
-          label="What's your Opinion?"
-          multiline
-          rowsMax={4}
-          onChange={handleTextAreaChange}
-          value={entryData.content}
-        />
+          <TextField
+            id="standard-multiline-flexible"
+            label="What's your Opinion?"
+            multiline
+            rowsMax={4}
+            onChange={handleTextAreaChange}
+            value={entryData.content}
+          />
         </DialogContent>
         <DialogActions>
-          <Button  style={{color: " #005ce6"}} size="small" onClick={handleClose} >
+          <Button
+            style={{ color: " #005ce6" }}
+            size="small"
+            onClick={handleClose}
+          >
             Cancel
           </Button>
           {loading ? (
-                <Button>
-                  <Loading type="spinner-border text-light" />
-                </Button>
-              ) : (
-                <Button  style={{color: " #005ce6"}} size="small" onClick={handleSubmit}>
-                  Save
-                </Button>
-              )}
+            <Button>
+              <Loading type="spinner-border text-light" />
+            </Button>
+          ) : (
+            <Button
+              style={{ color: " #005ce6" }}
+              size="small"
+              onClick={handleSubmit}
+            >
+              Save
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
     </Fragment>
